@@ -4,9 +4,6 @@ var express = require("express");
 var path = require("path");
 
 
-//render to html
-var render = require("./lib/htmlRenderer");
-
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -34,6 +31,8 @@ var tables = [];
 
    app.get("/api/waitlist", function(req, res) {
      //... respond with waitlist data
+
+
    });
  };
 
@@ -41,20 +40,41 @@ var tables = [];
 // Routes
 // =============================================================
 
-//THIS IS THE ROUTE FOR VIEW.HTML
+//THIS IS THE ROUTE FOR INDEX.HTML
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
-});
-
-//THIS IS THE ROUTE FOR ADD.HTML
-app.get("/add", function(req, res) {
-  res.sendFile(path.join(__dirname, "add.html"));
-});
-
-//THIS IS THE ROUTE FOR INDEX.JS
-app.get("/add", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
+
+//THIS IS THE ROUTE FOR ADDRESERVE.HTML
+app.get("/api/addreserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "addreserve.html"));
+});
+
+//THIS IS THE ROUTE FOR MAKE.HTML
+app.get("/api/make", function(req, res) {
+  res.sendFile(path.join(__dirname, "make.html"));
+});
+
+//THIS IS THE ROUTE FOR TABLE.HTML
+app.get("/api/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Displays a single character, or returns false
+app.get("/api/tables/:table", function(req, res) {
+  var chosen = req.params.table;
+
+  console.log(chosen);
+
+  for (var i = 0; i < tables.length; i++) {
+    if (chosen === tables[i].routeName) {
+      return res.json(tables[i]);
+    }
+  }
+
+  return res.json(tables);
+});
+
 
 
 // SERVER STARTS LISTENING
