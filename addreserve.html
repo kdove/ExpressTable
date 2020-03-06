@@ -2,85 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Reserve</title>
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
-
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <h1>Hot Resturant</h1>
+      <h3>We Only Have 5 Tables! Book your seat before they are gone</h3>
       <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Characters</button></a>
+      <a href="/view"><button class="btn btn-lg"><span></span>View Tables</button></a>
+      <a href="/reserve"><button class="btn btn-danger btn-lg"><span></span>Make Reservation</button></a>
     </div>
-    <div class="row">
-
-      <div class="col-12">
-
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Add Characters</strong></h3>
-          </div>
-          <div class="card-body">
-            <form method="POST" role="form">
-
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-
-              <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" class="form-control" id="role">
-              </div>
-
-              <div class="form-group">
-                <label for="age">Age</label>
-                <input type="text" class="form-control" id="age">
-              </div>
-
-              <div class="form-group">
-                <label for="force-points">Force Points</label>
-                <input type="text" class="form-control" id="force-points">
-              </div>
-
-            </form>
-            <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add to the Force</button>
-            </div>
-          </div>
-        </div>
-
+    <div>
+        <a href="/api/table">Tables</a>
+        <br>
+        <a href="/api/wait">API Wait List</a>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Phone Number</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="888-888-8888">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Unique ID</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1234">
+      </div>
+      <a href="/view"><button class="btn btn-lg secondary"><span></span>Submit</button></a>
+    </form>
   </div>
-
   <script type="text/javascript">
-    // Question: What does this code do?
-    $("#add-btn").on("click", function(event) {
-      event.preventDefault();
-      var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
-      };
-
-      // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
-        .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding character...");
-        });
-    });
   </script>
-
 </body>
 </html>

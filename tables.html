@@ -22,14 +22,8 @@
       <h3>If you want to eat you better reserve a table before they are gone</h3>
       <hr>
       <a href="/addreserve"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
-          Character</button></a>
-      <a href="/api/tables"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-eye"></span> All Characters</button></a>
+
     </div>
-    <div class="row">
-
-      <div class="col-12">
-
         <div class="card mb-4">
           <div class="card-header">
             <h3><strong>Table Reservations</strong></h3>
@@ -45,45 +39,52 @@
             </div>
           </div>
         </div>
+        
 
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Statistics</strong></h3>
-          </div>
+                <!--  -->
           <div class="card-body">
-            <h2 id="tableRes">Reserve Your Table </h2>
+            <h2 id="tableRes">Wait list</h2>
             <div id="stats">
-              <h3><strong>Table:</strong> <span id="ReserveNow"></span></h3>
-              <h3><strong>ID</strong> <span id=TableID></span></h3>
-              <h3><strong>Name:</strong> <span id="CustomerName"></span></h3>
-              <h3><strong>Email:</strong> <span id="emailTablestatus"></span></h3>
+
             </div>
           </div>
-        </div>
-      </div>
+          <!--  -->
+        
+      
+    
+  
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3><strong>Wait List</strong></h3>
     </div>
+    
+
+
   </div>
 
-  <script type="text/javascript">
+
+</div>
+
+<script type="text/javascript">
     $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+      var searchTables = $("#table-search").val().trim();
 
       // Using a RegEx Pattern to remove spaces from searchedCharacter
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+      searchedTables = searchedTables.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/characters/" + searchedCharacter, function(data) {
+      $.get("/api//" + searchedTables, function(data) {
         console.log(data);
         if (data) {
-          $("#stats").show();
+          $("#Table").show();
           $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
+          $("#phoneNumber").text(data.phoneNumber);
+          $("#email").text(data.email);
+          $("#id").text(data.id);
         } else {
           $("#name").text(
-            "The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
+            "We have no more reservations, go away!");
+          $("#Table").hide();
         }
       });
     });
