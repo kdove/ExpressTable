@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
+  <title>Table Reservations - Express</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -18,12 +18,12 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <h1>Express Table</h1>
+      <h3>If you want to eat you better reserve a table before they are gone</h3>
       <hr>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
+      <a href="/addreserve"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
           Character</button></a>
-      <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
+      <a href="/api/tables"><button class="btn btn-danger btn-lg"><span
             class="fa fa-eye"></span> All Characters</button></a>
     </div>
     <div class="row">
@@ -32,15 +32,15 @@
 
         <div class="card mb-4">
           <div class="card-header">
-            <h3><strong>Character Search</strong></h3>
+            <h3><strong>Table Reservations</strong></h3>
           </div>
           <div class="card-body">
-            <input type="text" id="character-search" class="form-control">
+            <input type="text" id="table-search" class="form-control">
             <br>
             <div class="text-right">
               <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span
                   class="fa fa-search"></span> Search
-                Your Feelings. You know it is true.</button>
+                Reserve Your Table Here</button>
 
             </div>
           </div>
@@ -55,8 +55,8 @@
             <div id="stats">
               <h3><strong>Table:</strong> <span id="ReserveNow"></span></h3>
               <h3><strong>ID</strong> <span id=TableID></span></h3>
-              <h3><strong>Name:</strong> <span id="age"></span></h3>
-              <h3><strong>Email:</strong> <span id="force-points"></span></h3>
+              <h3><strong>Name:</strong> <span id="CustomerName"></span></h3>
+              <h3><strong>Email:</strong> <span id="emailTablestatus"></span></h3>
             </div>
           </div>
         </div>
