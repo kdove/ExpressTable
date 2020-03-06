@@ -1,0 +1,28 @@
+{
+  "name": "expresstable",
+  "version": "1.0.0",
+  "description": "* Description: Basic app demonstrating Node and Express with jQuery. Overall purpose is to help schedule reservation requests. Restaurant has just 5 tables available. First five requests get a reservation, every request after that is sent to the waiting list. * Live Demo: <https://hot-restaurant-fsf.herokuapp.com/>",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^25.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdove/ExpressTable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdove/ExpressTable/issues"
+  },
+  "homepage": "https://github.com/kdove/ExpressTable#readme"
+}
