@@ -3,11 +3,6 @@
 var express = require("express");
 var path = require("path");
 
-//CLASS TABLE
-const Table = require("./lib/Table");
-
-///CREATING PATH TO THE CSS FILE IN THE OUTPUT FOLDER 
-const  = path.join(OUTPUT_DIR, "style.css");
 
 //render to html
 var render = require("./lib/htmlRenderer");
@@ -17,22 +12,24 @@ var render = require("./lib/htmlRenderer");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-const tables = 5;
-
-var waitlist = [];
-var reservations = [];
-var tables = [];
-var output = [];
-
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Table (DATA)
+// =============================================================
+var tables = [];
+
 
  module.exports = function(app) {
-   app.get("/api/tables", function(req, res) {
+   app.get("/api/tables", function (req, res) {
+     
+     
+     
      //... respond with table data
+
+
    });
 
    app.get("/api/waitlist", function(req, res) {
