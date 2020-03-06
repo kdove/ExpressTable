@@ -76,7 +76,24 @@ app.get("/api/tables/:table", function(req, res) {
   return res.json(tables);
 });
 
+app.post("/api/tables", function(req, res){
+  var newTable = req.body;
 
+  //test the newTable object
+  console.log(newTable);
+
+  //add to this list for search functionallity
+  tables.push(newTable);
+
+  //check to see if we have more 
+  if(reservations.length < 5){
+    reservations.push(newTable);
+  }
+  //push to the waitlist if we don't have any more space
+  else{
+    waitlist.push(newTable);
+  }
+})
 
 // SERVER STARTS LISTENING
 // =============================================================
