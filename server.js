@@ -1,7 +1,9 @@
 // Dependencies
-// =============================================================
+//=============================================================
 var express = require("express");
 var path = require("path");
+var fs = require("fs");
+var http = require("http");
 
 
 // Sets up the Express App
@@ -14,27 +16,37 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 // Table (DATA)
 // =============================================================
 var tables = [];
+console.log(tables);
+var reservations = [];
+console.logs(reservations);
+var waitlist = [];
+console.log(waitlist);
 
 
- module.exports = function(app) {
+
    app.get("/api/tables", function (req, res) {
+     // Saving the request posted data as a variable.
      
+     var requestData = "";
      
+     var myHTML =
      
      //... respond with table data
 
 
    });
 
+app.post("/api/characters", function (req, res) {
+     
    app.get("/api/waitlist", function(req, res) {
      //... respond with waitlist data
 
 
    });
- };
 
 
 // Routes
@@ -75,10 +87,11 @@ app.get("/api/tables/:table", function(req, res) {
   return res.json(tables);
 });
 
+app.post("/api/waitlist")
 
 
 // SERVER STARTS LISTENING
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
-});
+  console.log("App listening on: http://localhost:" + PORT);
+})
